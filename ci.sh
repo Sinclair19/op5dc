@@ -79,7 +79,7 @@ cp "${GITHUB_WORKSPACE}"/anykernel.sh "${GITHUB_WORKSPACE}"/AnyKernel3-${ANYKERN
 Initsystem
 test -d releases || mkdir releases
 ls -lh
-cd ./android_kernel_oneplus_msm8998-"${KERNEL_HASH}"/
+cd ./x_kernel_oneplus_msm8998-"${KERNEL_HASH}"/
 
 ###dc patch
 #Patch_dc
