@@ -112,7 +112,7 @@ test -f localversion || touch localversion
 cat >localversion <<EOF
 ~x_kernel_base_sinclair19
 EOF
-sed -i '49s/.*/CONFIG_MODULES=y\nCONFIG_MODULE_UNLOAD=y\nCONFIG_MODVERSIONS=y/' arch/arm64/configs/oneplus5_defconfig
+
 make -j"$(nproc --all)" O=out oneplus5_defconfig \
     ARCH=arm64 \
     SUBARCH=arm64 \
