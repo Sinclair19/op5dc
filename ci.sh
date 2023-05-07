@@ -31,7 +31,7 @@ Initsystem() {
 Patch_dc() {
     #cp -R ../drivers/* ./drivers/
     patch -p1 <../dc_patch/dc_patch.diff
-    grep -q CONFIG_FLICKER_FREE arch/arm64/configs/lineage_oneplus5_defconfig || echo "CONFIG_FLICKER_FREE=y" >>arch/arm64/configs/lineage_oneplus5_defconfig
+    grep -q CONFIG_FLICKER_FREE arch/arm64/configs/oneplus5_defconfig || echo "CONFIG_FLICKER_FREE=y" >>arch/arm64/configs/oneplus5_defconfig
 }
 Patch_ksu() {
     test -d KernelSU || mkdir KernelSU
@@ -43,8 +43,8 @@ Patch_ksu() {
     DRIVER_MAKEFILE=$DRIVER_DIR/Makefile
     grep -q "kernelsu" "$DRIVER_MAKEFILE" || printf "\nobj-y += kernelsu/\n" >>"$DRIVER_MAKEFILE"
     #额外的修补
-    grep -q CONFIG_KPROBES arch/arm64/configs/lineage_oneplus5_defconfig ||
-        echo "CONFIG_KPROBES=y" >>arch/arm64/configs/lineage_oneplus5_defconfig
+    grep -q CONFIG_KPROBES arch/arm64/configs/oneplus5_defconfig ||
+        echo "CONFIG_KPROBES=y" >>arch/arm64/configs/oneplus5_defconfig
     #修补kernelsu/makefile
     ## https://gist.github.com/0penBrain/7be59a48aba778c955d992aa69e524c5
     KSU_GIT_VERSION=$(curl -I -k "https://api.github.com/repos/tiann/KernelSU/commits?per_page=1&sha=$KERNELSU_HASH" |
@@ -89,7 +89,7 @@ cd ./android_kernel_oneplus_msm8998-"${KERNEL_HASH}"/
 #~DCdimming-for-Seshiria
 #EOF
 ##llvm dc build
-#make -j"$(nproc --all)" O=out lineage_oneplus5_defconfig \
+#make -j"$(nproc --all)" O=out oneplus5_defconfig \
 #    ARCH=arm64 \
 #    SUBARCH=arm64 \
 #    LLVM=1
