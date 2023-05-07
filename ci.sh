@@ -43,10 +43,11 @@ Patch_ksu() {
     DRIVER_MAKEFILE=$DRIVER_DIR/Makefile
     grep -q "kernelsu" "$DRIVER_MAKEFILE" || printf "\nobj-y += kernelsu/\n" >>"$DRIVER_MAKEFILE"
     #额外的修补
-    grep -q CONFIG_KPROBES arch/arm64/configs/oneplus5_defconfig ||
+    grep -q CONFIG_MODULES arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_MODULES=y" >>arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_MODULE_UNLOAD=y" >>arch/arm64/configs/oneplus5_defconfig ||
-        echo "CONFIG_MODVERSIONS=y" >>arch/arm64/configs/oneplus5_defconfig ||
+        echo "CONFIG_MODVERSIONS=y" >>arch/arm64/configs/oneplus5_defconfig
+    grep -q CONFIG_KPROBES arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_KPROBES=y" >>arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_HAVE_KPROBES=y" >>arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_KPROBE_EVENTS=y" >>arch/arm64/configs/oneplus5_defconfig
