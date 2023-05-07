@@ -1,8 +1,11 @@
 name: Build lineageOS Kernel
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-20.04
