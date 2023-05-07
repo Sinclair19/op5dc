@@ -70,7 +70,7 @@ Releases() {
     #用生成的文件的MD5来区分每次生成的文件
     md5=$(md5sum ../AnyKernel3-${ANYKERNEL_HASH}/Image.gz-dtb)
     md5tab=${md5:0:5}
-    kernelversion=$(head -n 3 "${GITHUB_WORKSPACE}"/android_kernel_oneplus_msm8998-"${KERNEL_HASH}"/Makefile | awk '{print $3}' | tr -d '\n')
+    kernelversion=$(head -n 3 "${GITHUB_WORKSPACE}"/x_kernel_oneplus_msm8998-"${KERNEL_HASH}"/Makefile | awk '{print $3}' | tr -d '\n')
     buildtime=$(date +%Y%m%d-%H%M%S)
     touch "${GITHUB_WORKSPACE}"/AnyKernel3-${ANYKERNEL_HASH}/buildinfo
     cat >"${GITHUB_WORKSPACE}"/AnyKernel3-${ANYKERNEL_HASH}/buildinfo <<EOF
@@ -111,6 +111,24 @@ cd ./x_kernel_oneplus_msm8998-"${KERNEL_HASH}"/
 
 ##kernelsu
 #Patch_ksu
+#test -f localversion || touch localversion
+#cat >localversion <<EOF
+#~DCdimming-ksu-for-Seshiria
+#EOF
+#make -j"$(nproc --all)" O=out oneplus5_defconfig \
+#    ARCH=arm64 \
+#    SUBARCH=arm64 \
+#    LLVM=1
+#
+#(make -j"$(nproc --all)" O=out \
+#    ARCH=arm64 \
+#    SUBARCH=arm64 \
+#    CROSS_COMPILE=aarch64-linux-android- \
+#    CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+#    CLANG_TRIPLE=aarch64-linux-gnu- \
+#    LLVM=1 &&
+#    Releases "op5lin20-dc-ksu$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
+
 test -f localversion || touch localversion
 cat >localversion <<EOF
 ~DCdimming-ksu-for-Seshiria
@@ -127,4 +145,4 @@ make -j"$(nproc --all)" O=out oneplus5_defconfig \
     CROSS_COMPILE_ARM32=arm-linux-androideabi- \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 &&
-    Releases "op5lin20-dc-ksu$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
+    Releases "op5xkernel")
