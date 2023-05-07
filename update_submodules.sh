@@ -54,7 +54,7 @@ KERNELSU_HASH=$KERNELSU_HASH
 KERNELSU_URL=https://github.com/tiann/KernelSU/archive/"\${KERNELSU_HASH}".zip
 #lineageos kernel
 KERNEL_HASH=$KERNEL_HASH
-KERNEL_URL=https://github.com/LineageOS/android_kernel_oneplus_msm8998/archive/"\${KERNEL_HASH}".zip
+KERNEL_URL=https://github.com/ederekun/x_kernel_oneplus_msm8998/archive/"\${KERNEL_HASH}".zip
 EOF
 }
 
@@ -66,7 +66,7 @@ up_hash=$(get_hash "LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-andr
 compare_hash "ARM_GCC_HASH" "$up_hash"
 up_hash=$(get_hash "LineageOS/android_prebuilts_build-tools" "${lineage_branch}.0")
 compare_hash "PREBUILTS_HASH" "$up_hash"
-up_hash=$(get_hash "LineageOS/android_kernel_oneplus_msm8998" "${lineage_branch}")
+up_hash=$(get_hash "ederekun/x_kernel_oneplus_msm8998" "base")
 compare_hash "KERNEL_HASH" "$up_hash"
 up_hash=$(get_release_hash "tiann/KernelSU" "main")
 compare_hash "KERNELSU_HASH" "$up_hash"
