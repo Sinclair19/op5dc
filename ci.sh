@@ -110,7 +110,7 @@ cd ./x_kernel_oneplus_msm8998-"${KERNEL_HASH}"/
 #    Releases "op5lin20-dc") || (echo "dc build error" && exit 1)
 
 ##kernelsu
-Patch_ksu
+#Patch_ksu
 test -f localversion || touch localversion
 cat >localversion <<EOF
 ~DCdimming-ksu-for-Seshiria
