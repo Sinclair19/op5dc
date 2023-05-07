@@ -43,8 +43,8 @@ Patch_ksu() {
     DRIVER_MAKEFILE=$DRIVER_DIR/Makefile
     grep -q "kernelsu" "$DRIVER_MAKEFILE" || printf "\nobj-y += kernelsu/\n" >>"$DRIVER_MAKEFILE"
     #额外的修补
-
-    sed -i '50i CONFIG_MODULES=y\nCONFIG_MODULE_UNLOAD=y\nCONFIG_MODVERSIONS=y' arch/arm64/configs/oneplus5_defconfig
+    sed -i '384i CONFIG_DIAG_CHAR=y' arch/arm64/configs/oneplus5_defconfig
+    sed -i '49s/.*/CONFIG_MODULES=y\nCONFIG_MODULE_UNLOAD=y\nCONFIG_MODVERSIONS=y/' arch/arm64/configs/oneplus5_defconfig
 
     echo "CONFIG_KPROBES=y" >>arch/arm64/configs/oneplus5_defconfig
     echo "CONFIG_HAVE_KPROBES=y" >>arch/arm64/configs/oneplus5_defconfig
@@ -108,6 +108,7 @@ cd ./x_kernel_oneplus_msm8998-"${KERNEL_HASH}"/
 #    LLVM=1 &&
 #    Releases "op5lin20-dc") || (echo "dc build error" && exit 1)
 
+<<<<<<< HEAD
 test -f localversion || touch localversion
 cat >localversion <<EOF
 ~x_kernel_base_sinclair19
@@ -125,6 +126,26 @@ make -j"$(nproc --all)" O=out oneplus5_defconfig \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 &&
     Releases "op5xkernel")
+=======
+#test -f localversion || touch localversion
+#cat >localversion <<EOF
+#~x_kernel_base_sinclair19
+#EOF
+#
+#make -j"$(nproc --all)" O=out oneplus5_defconfig \
+#    ARCH=arm64 \
+#    SUBARCH=arm64 \
+#    LLVM=1
+#
+#(make -j"$(nproc --all)" O=out \
+#    ARCH=arm64 \
+#    SUBARCH=arm64 \
+#    CROSS_COMPILE=aarch64-linux-android- \
+#    CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+#    CLANG_TRIPLE=aarch64-linux-gnu- \
+#    LLVM=1 &&
+#    Releases "op5xkernel")
+>>>>>>> e586746 (set CONFIG_DIAG_CHAR=y)
 
 ##kernelsu
 Patch_ksu
