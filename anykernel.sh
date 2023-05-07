@@ -4,15 +4,17 @@
 ### AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=oneplus5 lineageOS dc kernel by Seshiria @ GitHub
+kernel.string=
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
-do.cleanuponabort=0
-device.name1=cheeseburger
-device.name2=dumpling
-supported.versions=13
+do.cleanuponabort=1
+device.name1=dumpling
+device.name2=OnePlus5T
+device.name3=cheeseburger
+device.name4=OnePlus5
+supported.versions=9 - 13
 supported.patchlevels=
 '; } # end properties
 
