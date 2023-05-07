@@ -1,3 +1,12 @@
+# x_kernel_oneplus_msm8998 kernel_su
+
+kernel source: https://github.com/ederekun/x_kernel_oneplus_msm8998
+
+original repo: https://github.com/Seshiria/op5dc
+
+below are orignial readme
+***
+
 # oneplus 5 (cheeseburger) DC Dimming  kernel on lineageOS
 
 [![Build lineageOS Kernel](https://github.com/Seshiria/op5dc/actions/workflows/main.yml/badge.svg)](https://github.com/Seshiria/op5dc/actions/workflows/main.yml)
