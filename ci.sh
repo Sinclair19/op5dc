@@ -108,7 +108,6 @@ cd ./x_kernel_oneplus_msm8998-"${KERNEL_HASH}"/
 #    LLVM=1 &&
 #    Releases "op5lin20-dc") || (echo "dc build error" && exit 1)
 
-<<<<<<< HEAD
 test -f localversion || touch localversion
 cat >localversion <<EOF
 ~x_kernel_base_sinclair19
@@ -125,27 +124,7 @@ make -j"$(nproc --all)" O=out oneplus5_defconfig \
     CROSS_COMPILE_ARM32=arm-linux-androideabi- \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 &&
-    Releases "op5xkernel")
-=======
-#test -f localversion || touch localversion
-#cat >localversion <<EOF
-#~x_kernel_base_sinclair19
-#EOF
-#
-#make -j"$(nproc --all)" O=out oneplus5_defconfig \
-#    ARCH=arm64 \
-#    SUBARCH=arm64 \
-#    LLVM=1
-#
-#(make -j"$(nproc --all)" O=out \
-#    ARCH=arm64 \
-#    SUBARCH=arm64 \
-#    CROSS_COMPILE=aarch64-linux-android- \
-#    CROSS_COMPILE_ARM32=arm-linux-androideabi- \
-#    CLANG_TRIPLE=aarch64-linux-gnu- \
-#    LLVM=1 &&
-#    Releases "op5xkernel")
->>>>>>> e586746 (set CONFIG_DIAG_CHAR=y)
+    Releases "x_kernel_base")
 
 ##kernelsu
 Patch_ksu
@@ -165,4 +144,4 @@ make -j"$(nproc --all)" O=out oneplus5_defconfig \
     CROSS_COMPILE_ARM32=arm-linux-androideabi- \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 &&
-    Releases "op5_xkernel_ksu$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
+    Releases "x_kernel_base_ksu_$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
