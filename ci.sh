@@ -45,6 +45,8 @@ Patch_ksu() {
     #额外的修补
     grep -q CONFIG_KPROBES arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_KPROBES=y" >>arch/arm64/configs/oneplus5_defconfig ||
+        echo "CONFIG_HAVE_KPROBES=y" >>arch/arm64/configs/oneplus5_defconfig ||
+        echo "CONFIG_KPROBE_EVENTS=y" >>arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_MODULES=y" >>arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_MODULE_UNLOAD=y" >>arch/arm64/configs/oneplus5_defconfig ||
         echo "CONFIG_MODVERSIONS=y" >>arch/arm64/configs/oneplus5_defconfig
