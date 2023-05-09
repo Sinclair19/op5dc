@@ -125,7 +125,7 @@ make -j"$(nproc --all)" O=out oneplus5_defconfig \
     CROSS_COMPILE_ARM32=arm-linux-androideabi- \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 &&
-    Releases "op5xkernel")
+    Releases "x_kernel_base")
 
 ##kernelsu
 Patch_ksu
@@ -145,4 +145,4 @@ make -j"$(nproc --all)" O=out oneplus5_defconfig \
     CROSS_COMPILE_ARM32=arm-linux-androideabi- \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 &&
-    Releases "op5_xkernel_ksu$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
+    Releases "x_kernel_base_ksu_$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
