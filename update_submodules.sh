@@ -66,7 +66,7 @@ up_hash=$(get_hash "LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-andr
 compare_hash "ARM_GCC_HASH" "$up_hash"
 up_hash=$(get_hash "LineageOS/android_prebuilts_build-tools" "${lineage_branch}.0")
 compare_hash "PREBUILTS_HASH" "$up_hash"
-up_hash=$(get_hash "ederekun/x_kernel_oneplus_msm8998" "base")
+up_hash=$(get_hash "ederekun/x_kernel_oneplus_msm8998" "old")
 compare_hash "KERNEL_HASH" "$up_hash"
 up_hash=$(get_release_hash "tiann/KernelSU" "main")
 compare_hash "KERNELSU_HASH" "$up_hash"
