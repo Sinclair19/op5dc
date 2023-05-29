@@ -35,8 +35,8 @@ update_conf() {
         cat > submodules.conf << EOF
 
 #ndk 24 clang-r437112b
-LLVM_TAG=$LLVM_TAG
-LLVM_URL=$LLVM_URL
+LLVM_TAG=clang-r458507
+LLVM_URL=https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master-kernel-build-2022/clang-r458507.tar.gz
 #aarch64 gcc 
 AARCH64_GCC_HASH=$AARCH64_GCC_HASH
 AARCH64_GCC_URL=https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9/archive/"\${AARCH64_GCC_HASH}".zip
