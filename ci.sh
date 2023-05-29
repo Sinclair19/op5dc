@@ -112,6 +112,7 @@ test -f localversion || touch localversion
 cat >localversion <<EOF
 ~x_kernel_base_sinclair19
 EOF
+
 make -j"$(nproc --all)" O=out oneplus5_defconfig \
     ARCH=arm64 \
     SUBARCH=arm64 \
